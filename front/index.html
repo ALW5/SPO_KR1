@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Аренда складских ячеек</title>
+
+    <link
+        rel="stylesheet"
+        href="styles.css">
+</head>
+
+<body>
+
+    <!-- ================================================== -->
+    <!-- АВТОРИЗАЦИЯ -->
+    <!-- ================================================== -->
+
+    <section
+        id="screen-auth"
+        class="screen active">
+
+        <div class="card">
+
+            <h1>Складской сервис</h1>
+
+            <p class="subtitle">
+                Аренда складских ячеек
+            </p>
+
+            <div class="tabs">
+
+                <button
+                    type="button"
+                    class="tab active"
+                    data-tab="login">
+                    Вход
+                </button>
+
+                <button
+                    type="button"
+                    class="tab"
+                    data-tab="register">
+                    Регистрация
+                </button>
+
+            </div>
+
+            <form id="form-auth">
+
+                <input
+                    id="auth-email"
+                    type="email"
+                    placeholder="Email"
+                    autocomplete="email"
+                    required>
+
+                <input
+                    id="auth-fullname"
+                    type="text"
+                    placeholder="ФИО"
+                    autocomplete="name"
+                    class="hidden">
+
+                <input
+                    id="auth-password"
+                    type="password"
+                    placeholder="Пароль (мин. 6)"
+                    autocomplete="current-password"
+                    minlength="6"
+                    required>
+
+                <button
+                    type="submit"
+                    id="auth-submit">
+                    Войти
+                </button>
+
+            </form>
+
+            <p
+                id="auth-error"
+                class="error">
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================== -->
+    <!-- ОСНОВНОЕ ПРИЛОЖЕНИЕ -->
+    <!-- ================================================== -->
+
+    <section
+        id="screen-app"
+        class="screen">
+
+        <header class="topbar">
+
+            <h2>
+                Складской сервис
+            </h2>
+
+            <div class="user-box">
+
+                <span id="user-name"></span>
+
+                <button
+                    id="btn-logout">
+                    Выйти
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================================================== -->
+        <!-- НАВИГАЦИЯ -->
+        <!-- ================================================== -->
+
+        <nav class="tabs-main">
+
+            <button
+                type="button"
+                class="tab-main active"
+                data-view="cells">
+                Ячейки
+            </button>
+
+            <button
+                type="button"
+                class="tab-main"
+                data-view="warehouses">
+                Склады
+            </button>
+
+            <button
+                type="button"
+                class="tab-main"
+                data-view="rentals">
+                Мои аренды
+            </button>
+
+        </nav>
+
+
+        <!-- ================================================== -->
+        <!-- КОНТЕНТ -->
+        <!-- ================================================== -->
+
+        <main>
+
+            <div
+                id="view-cells"
+                class="view active">
+            </div>
+
+            <div id="booking-modal" class="modal hidden">
+
+                <div class="modal-content">
+
+                    <h2>Бронирование ячейки</h2>
+
+                    <p>
+                        Ячейка:
+                        <strong id="booking-cell-number">—</strong>
+                    </p>
+
+                    <p>
+                        Цена:
+                        <strong id="booking-price">—</strong> ₽ / день
+                    </p>
+
+                    <label>
+                        Дата начала:
+                        <input
+                                type="date"
+                                id="booking-start-date">
+                    </label>
+
+                    <label>
+                        Дата окончания:
+                        <input
+                                type="date"
+                                id="booking-end-date">
+                    </label>
+
+                    <p>
+                        Количество дней:
+                        <strong id="booking-days">0</strong>
+                    </p>
+
+                    <p>
+                        Итого:
+                        <strong id="booking-total">0</strong> ₽
+                    </p>
+
+                    <div class="actions">
+
+                        <button
+                                type="button"
+                                class="btn-primary"
+                                id="booking-confirm">
+                            Забронировать
+                        </button>
+
+                        <button
+                                type="button"
+                                class="btn-secondary"
+                                id="booking-cancel">
+                            Отмена
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <div
+                id="view-warehouses"
+                class="view">
+            </div>
+
+            <div
+                id="view-rentals"
+                class="view">
+            </div>
+
+        </main>
+
+    </section>
+
+
+    <!-- Только настоящий backend -->
+    <script src="app.js"></script>
+
+</body>
+
+</html>
